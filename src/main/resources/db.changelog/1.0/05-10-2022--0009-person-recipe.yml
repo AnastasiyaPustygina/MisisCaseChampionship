@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0009-person-recipe
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: person_recipe
+      createTable:
+        tableName: person_recipe
+        columns:
+          - column:
+              name: person_id
+              type: integer
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_person_recipe
+                foreignKeyName: fk_person_recipe_person
+                references: person(id)
+          - column:
+              name: recipe_id
+              type: integer
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_person_recipe
+                foreignKeyName: fk_person_recipe_recipe
+                references: recipe(id)

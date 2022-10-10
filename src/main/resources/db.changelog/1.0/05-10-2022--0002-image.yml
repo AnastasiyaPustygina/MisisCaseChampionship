@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0002-image
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: image
+      createTable:
+        tableName: image
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_image
+          - column:
+              name: path
+              type: varchar(200)
+              constraints:
+                nullable: false
+                unique: true

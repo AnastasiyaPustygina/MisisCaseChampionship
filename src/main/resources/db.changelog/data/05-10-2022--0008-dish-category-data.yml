@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0008-dish-category-data
+      author: apustygina
+      runOnChange: true
+      loadData:
+        file: csv/05-10-2022--0008-dish-category-data.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        encoding: UTF-8
+        tableName: dish_category

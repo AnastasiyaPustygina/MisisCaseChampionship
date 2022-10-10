@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0004-product
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: product
+      createTable:
+        tableName: product
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_product
+          - column:
+              name: name
+              type: varchar(100)
+              constraints:
+                nullable: false
+                unique: true
+          - column:
+              name: calories_number
+              type: numeric(5,0)
+          - column:
+              name: glycemic_index
+              type: numeric(3,0)
+          - column:
+              name: protein_number
+              type: numeric(3,0)
+          - column:
+              name: fat_number
+              type: numeric(3,0)
+          - column:
+              name: carbohydrate_number
+              type: numeric(3,0)
+          - column:
+              name: image_id
+              type: integer
+              constraints:
+                foreignKeyName: fk_product_image
+                references: image(id)

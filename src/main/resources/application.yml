@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-master.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5433/cooking
+    username: trajectory_user
+    password: trajectory_password
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      showsql: true
+      database: postgresql
+      generate-ddl: false
+      database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+      hibernate:
+        ddl-auto: none

@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0007-ingredient
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: ingredient
+      createTable:
+        tableName: ingredient
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_increment
+          - column:
+              name: weight
+              type: numeric(7,0)
+              constraints:
+                nullable: false
+          - column:
+              name: product_id
+              type: integer
+              constraints:
+                nullable: false
+                foreignKeyName: fk_ingredient_product
+                references: product(id)
+          - column:
+              name: dish_id
+              type: integer
+              constraints:
+                nullable: false
+                foreignKeyName: fk_ingredient_dish
+                references: dish(id)

@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0008-dish-category
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: dish_category
+      createTable:
+        tableName: dish_category
+        columns:
+          - column:
+              name: dish_id
+              type: integer
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_dish_category
+                foreignKeyName: fk_dish_category_dish
+                references: dish(id)
+          - column:
+              name: category_id
+              type: integer
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_dish_category
+                foreignKeyName: fk_dish_category_category
+                references: category(id)

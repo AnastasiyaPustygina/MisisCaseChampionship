@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+     id: 05-10-2022--0002-image-data
+     author: apustygina
+     runOnChange: true
+     loadData:
+       primaryKey: id
+       file: csv/05-10-2022--0002-image-data.csv
+       relativeToChangelogFile: true
+       separator: ;
+       quotChar: '"'
+       encoding: UTF-8
+       tableName: image

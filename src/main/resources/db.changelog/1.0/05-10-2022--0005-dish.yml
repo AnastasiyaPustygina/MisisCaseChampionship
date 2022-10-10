@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0001-dish
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: dish
+      createTable:
+        tableName: dish
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_dish
+          - column:
+              name: name
+              type: varchar(150)
+              constraints:
+                nullable: false
+                unique: true
+          - column:
+              name: image_id
+              type: integer
+              constraints:
+                foreignKeyName: fk_dish_image
+                references: image(id)

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0001-category
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: category
+      createTable:
+        tableName: category
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_category
+          - column:
+              name: name
+              type: varchar(100)
+              constraints:
+                nullable: false
+                unique: true

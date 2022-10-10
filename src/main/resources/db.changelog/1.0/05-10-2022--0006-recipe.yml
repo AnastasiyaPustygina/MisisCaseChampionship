@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0006-recipe
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: recipe
+      createTable:
+        tableName: recipe
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_recipe
+          - column:
+              name: text
+              type: varchar(3000)
+              constraints:
+                nullable: false
+          - column:
+              name: dish_id
+              type: integer
+              constraints:
+                nullable: false
+                foreignKeyName: fk_recipe_dish
+                references: dish(id)

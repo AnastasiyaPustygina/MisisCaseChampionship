@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0001-category-data
+      author: apustygina
+      runOnChange: true
+      loadData:
+        primaryKey: id
+        file: csv/05-10-2022--0001-category-data.csv
+        relativeToChangelogFile: true
+        separator: ;
+        quotChar: '"'
+        encoding: UTF-8
+        tableName: category

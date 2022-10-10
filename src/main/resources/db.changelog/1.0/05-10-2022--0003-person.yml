@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 05-10-2022--0003-person
+      author: apustygina
+      preConditions:
+        not:
+          tableExists:
+            tableName: person
+      createTable:
+        tableName: person
+        columns:
+          - column:
+              name: id
+              type: integer
+              autoIncrement: true
+              constraints:
+                nullable: false
+                primaryKey: true
+                primaryKeyName: pk_person
