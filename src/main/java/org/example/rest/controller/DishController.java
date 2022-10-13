@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.example.domain.Dish;
 import org.example.rest.dto.DishDto;
 import org.example.service.DishService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.service.exception.DishNotFoundException;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,10 +27,20 @@ public class DishController {
         return dishService.findTenByCategoryId(categoryId).stream().map(DishDto::toDto).toList();
     }
 
+    @GetMapping("/dish/{id}")
+    public DishDto findDishById(@PathVariable("id") int id){
+        return DishDto.toDto(dishService.findById(id));
+    }
+
     @GetMapping("/dish/categories/")
     public List<DishDto> findDishesByCategoryIds(@RequestBody List<Integer> ingredientIds){
         List<Dish> dishes = dishService.findByCategoryIds(ingredientIds);
         return dishes.stream().map(DishDto::toDto).toList();
+    }
+
+    @ExceptionHandler(DishNotFoundException.class)
+    public ResponseEntity<String> handlerDishNotFoundException(DishNotFoundException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
 }

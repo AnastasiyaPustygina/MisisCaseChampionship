@@ -3,6 +3,8 @@ package org.example.rest.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.rest.dto.RecipeDto;
 import org.example.service.RecipeService;
+import org.example.service.exception.RecipeNotFoundException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +35,11 @@ public class RecipeController {
     public void addRecipeToFavouritesByPersonIdAndRecipeId(
             @PathVariable("recipeId") int recipeId, @PathVariable("personId") int personId){
         recipeService.addRecipeToFavouritesByPersonIdAndRecipeId(personId, recipeId);
+    }
+
+    @ExceptionHandler(RecipeNotFoundException.class)
+    public ResponseEntity<String> handlerRecipeNotFoundException(RecipeNotFoundException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
 }

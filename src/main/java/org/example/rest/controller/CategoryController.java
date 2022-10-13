@@ -15,7 +15,6 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-
     @GetMapping("/category")
     public List<CategoryDto> findAllCategories(){
         return categoryService.findAll().stream().map(CategoryDto::toDto).toList();
