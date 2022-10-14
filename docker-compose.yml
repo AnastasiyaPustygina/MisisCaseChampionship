@@ -19,7 +19,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5433/cooking
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/cooking
       - SPRING_DATASOURCE_USERNAME=trajectory_user
       - SPRING_DATASOURCE_PASSWORD=trajectory_password
       - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver

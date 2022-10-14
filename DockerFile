@@ -1,4 +1,4 @@
-FROM adoptopenjdk:16-jre-hotspot
+FROM openjdk:19
 COPY /target/MisisCaseChampionship-1.0-SNAPSHOT.jar /misisCaseChampionship.jar
 EXPOSE 8082
 ENTRYPOINT ["java", "-jar", "/misisCaseChampionship.jar"]

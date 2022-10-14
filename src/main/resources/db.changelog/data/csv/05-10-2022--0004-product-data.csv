@@ -1,2 +1,4 @@
 name;calories_number;glycemic_index;protein_number;fat_number;carbohydrate_number;image_id
 water;0;0;0;0;0;3
+apple;44;35;0.4;0.4;9.8;2
+milk 1.5 %;45;30;3;1.5;4.8;3
