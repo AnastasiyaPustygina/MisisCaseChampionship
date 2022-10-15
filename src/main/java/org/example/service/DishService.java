@@ -9,5 +9,5 @@ public interface DishService {
     List<Dish> findByCategoryId(int id);
     List<Dish> findTenByCategoryId(int id);
     Dish findById(int id);
-    List<Dish> findByCategoryIds(List<Integer> ids);
+    List<Dish> findByCategoryIds(Integer[] ids);
 }

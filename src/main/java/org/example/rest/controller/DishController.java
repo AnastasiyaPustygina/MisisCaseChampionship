@@ -33,7 +33,7 @@ public class DishController {
     }
 
     @GetMapping("/dish/categories/")
-    public List<DishDto> findDishesByCategoryIds(@RequestBody List<Integer> ids){
+    public List<DishDto> findDishesByCategoryIds(@RequestParam(value = "ids") Integer[] ids){
         List<Dish> dishes = dishService.findByCategoryIds(ids);
         return dishes.stream().map(DishDto::toDto).toList();
     }

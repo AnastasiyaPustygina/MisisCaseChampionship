@@ -17,9 +17,9 @@ public class PersonController {
     private final PersonService personService;
 
     @PostMapping("/person")
-    public PersonDto insertPerson(@RequestBody PersonDto personDto){
-        Person person = personService.insert(PersonDto.toDomainObject(personDto,
-                Collections.emptyList()));
+    public PersonDto insertPerson(){
+        Person person = personService.insert(Person.builder().recipe(
+                Collections.emptyList()).build());
         return PersonDto.toDto(person);
     }
 
