@@ -11,10 +11,12 @@ import org.example.domain.Product;
 public class IngredientDto {
 
     private final int id;
+    private String name;
     private final int weight;
 
     public static IngredientDto toDto(Ingredient ingredient){
-        return IngredientDto.builder().id(ingredient.getId()).weight(ingredient.getWeight()).build();
+        return IngredientDto.builder().id(ingredient.getId()).name(ingredient.getProduct()
+                .getName()).weight(ingredient.getWeight()).build();
     }
     public static Ingredient toDomainObject(IngredientDto dto, Dish dish, Product product){
         return Ingredient.builder().id(dto.getId()).weight(dto.getWeight())

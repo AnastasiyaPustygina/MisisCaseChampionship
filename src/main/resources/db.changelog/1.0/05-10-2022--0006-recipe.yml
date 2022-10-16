@@ -19,13 +19,12 @@ databaseChangeLog:
                 primaryKeyName: pk_recipe
           - column:
               name: text
-              type: varchar(3000)
+              type: varchar(30000)
               constraints:
                 nullable: false
           - column:
               name: dish_id
               type: integer
               constraints:
-                nullable: false
                 foreignKeyName: fk_recipe_dish
                 references: dish(id)

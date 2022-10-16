@@ -24,5 +24,5 @@ public interface DishRepository extends JpaRepository<Dish, Integer> {
 @Query("select d from Dish d left join d.category c left join d.ingredient i join d.image im where c.id " +
         "in :ids group by im.id, d.id, i.id having count(d.id) = :idCount")
 @EntityGraph(attributePaths = {"image", "ingredient"})
-    List<Dish> findDishesByCategoryIds(@Param("ids") Integer[] ids, @Param("idCount") long idCount);
+    List<Dish> findDishesByCategoryIds(@Param("ids") List<Integer> ids, @Param("idCount") long idCount);
 }

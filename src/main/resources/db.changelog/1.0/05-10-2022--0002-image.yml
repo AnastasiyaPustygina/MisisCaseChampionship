@@ -19,7 +19,7 @@ databaseChangeLog:
                 primaryKeyName: pk_image
           - column:
               name: path
-              type: varchar(200)
+              type: varchar(500)
               constraints:
                 nullable: false
-                unique: true
+#                unique: true

@@ -32,7 +32,7 @@ public class DishServiceImpl implements DishService{
     }
 
     @Override
-    public List<Dish> findByCategoryIds(Integer[] ids) {
-        return dishRepository.findDishesByCategoryIds(ids, ids.length);
+    public List<Dish> findByCategoryIds(List<Integer> ids) {
+        return dishRepository.findDishesByCategoryIds(ids, ids.size());
     }
 }
