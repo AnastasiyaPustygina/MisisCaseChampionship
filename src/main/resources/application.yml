@@ -2,13 +2,13 @@ server:
   port: 8082
 spring:
   liquibase:
-    user: trajectory_user
+    user: hsvtpjnodrordq
     enabled: true
     change-log: classpath:db.changelog/db.changelog-master.yml
   datasource:
-    url: jdbc:postgresql://localhost:5433/cooking
-    username: trajectory_user
-    password: trajectory_password
+    url: jdbc:postgresql://ec2-44-210-228-110.compute-1.amazonaws.com:5432/d77n9n8hg4ujo9
+    username: hsvtpjnodrordq
+    password: 44e055441ddd611333ea226e505142b9887a318472aa2164c2c61ded29b5d6a5
     driver-class-name: org.postgresql.Driver
     jpa:
       showsql: true

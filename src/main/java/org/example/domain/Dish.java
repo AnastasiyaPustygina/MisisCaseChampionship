@@ -28,7 +28,7 @@ public class Dish {
     private String name;
 
     @OneToMany(targetEntity = Ingredient.class, mappedBy = "dish", fetch = FetchType.LAZY)
-     List<Ingredient> ingredient;
+    private List<Ingredient> ingredient;
 
 
     @ManyToMany(targetEntity = Category.class, fetch = FetchType.LAZY)
